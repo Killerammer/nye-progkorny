@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Repülőterek adatainak szerkesztése</title>
+
+    <link rel="stylesheet"
+          th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}"/>
+    <script th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-4 mt-5">
+            <form method="post"
+                  th:action="@{/travel/update}">
+                <div class="form-group">
+                    <label for="id">Repülőtér szerkesztés</label>
+                </div>
+                <div class="form-group">
+                    <label for="id">ID</label>
+                    <input type="number"
+                           id="id"
+                           name="id"
+                           readonly
+                           class="form-control"
+                           th:value="${travel.id}"/>
+                </div>
+                <div class="form-group">
+                    <label for="iata">IATA</label>
+                    <input type="text"
+                           id="iata"
+                           name="iata"
+                           class="form-control"
+                           th:value="${travel.iata}"/>
+                </div>
+                <div class="form-group">
+                    <label for="fullName">Név</label>
+                    <input type="text"
+                           id="fullName"
+                           name="fullName"
+                           class="form-control"
+                           th:value="${travel.fullName}"/>
+                </div>
+                <div class="form-group">
+                    <label for="country">Ország</label>
+                    <input type="text"
+                           id="country"
+                           name="country"
+                           class="form-control"
+                           th:value="${travel.country}"/>
+                </div>
+                <div class="form-group">
+                    <label for="city">Város</label>
+                    <input type="text"
+                           id="city"
+                           name="city"
+                           class="form-control"
+                           th:value="${travel.city}"/>
+                </div>
+                <div class="form-group">
+                    <label for="latitude">Szélesség</label>
+                    <input type="number"
+                           id="latitude"
+                           name="latitude"
+                           class="form-control"
+                           th:value="${travel.latitude}"/>
+                </div>
+                <div class="form-group">
+                    <label for="longitude">Hosszúság</label>
+                    <input type="number"
+                           id="longitude"
+                           name="longitude"
+                           class="form-control"
+                           th:value="${travel.longitude}"/>
+                </div>
+
+                <button class="btn btn-primary"
+                        type="submit">Módosítás elküldése
+                </button>
+                <a th:href="@{/travel}"
+                   class="btn btn-secondary"
+                   type="submit">Mégse</a>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+</script>
+
+</body>
+</html>

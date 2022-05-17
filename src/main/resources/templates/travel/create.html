@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Repülőtér beírás</title>
+
+    <link rel="stylesheet"
+          th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}"/>
+    <script th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <h3 class="pt-5">Repülőtér létrehozás</h3>
+
+    <div class="row">
+        <div class="col-md-4 mt-5">
+            <form method="post"
+                  th:action="@{/travel/create}">
+                <div class="form-group">
+                    <label>Repülőtér beíró lap</label>
+                </div>
+                <div class="form-group">
+                    <label for="iata">IATA</label>
+                    <input type="text"
+                           id="iata"
+                           name="iata"
+                           class="form-control"
+                           />
+                </div>
+                <div class="form-group">
+                    <label for="fullName">Név</label>
+                    <input type="text"
+                           id="fullName"
+                           name="fullName"
+                           class="form-control"
+                           />
+                </div>
+                <div class="form-group">
+                    <label for="country">Ország</label>
+                    <input type="text"
+                           id="country"
+                           name="country"
+                           class="form-control"
+                           />
+                </div>
+                <div class="form-group">
+                    <label for="city">Város</label>
+                    <input type="text"
+                           id="city"
+                           name="city"
+                           class="form-control"
+                           />
+                </div>
+                <div class="form-group">
+                    <label for="latitude">Szélesség</label>
+                    <input type="number"
+                           id="latitude"
+                           name="latitude"
+                           class="form-control"
+                           />
+                </div>
+                <div class="form-group">
+                    <label for="longitude">Hosszúság</label>
+                    <input type="number"
+                           id="longitude"
+                           name="longitude"
+                           class="form-control"
+                           />
+                </div>
+
+                <button class="btn btn-primary pt-2 mt-2"
+                        type="submit">Repülőtér létrehozása
+                </button>
+                <a th:href="@{/travel/create}"
+                   class="btn btn-secondary pt-2 mt-2"
+                   type="submit">Mégse</a>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+</script>
+
+</body>
+</html>
