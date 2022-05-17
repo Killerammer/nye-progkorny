@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-alpine3.14
+FROM openjdk:11
 
 COPY "./target/travel.jar" "/application/travel.jar"
 

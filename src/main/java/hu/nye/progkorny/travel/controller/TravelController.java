@@ -45,8 +45,8 @@ public class TravelController {
 
     @PostMapping(value = "/update", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public String updateTravel(final Model model,
-                                 final @RequestParam(value = "id", required = false) Long id,
-                                 final Travel travelChanges) {
+                               final @RequestParam(value = "id", required = false) Long id,
+                               final Travel travelChanges) {
         final Travel travel = travelService.updateTravel(id, travelChanges);
         model.addAttribute(TRAVEL_ATTRIBUTE_NAME, travel);
         return TRAVEL_EDIT_TEMPLATE_NAME;
