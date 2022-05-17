@@ -83,10 +83,19 @@ public class Travel {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Travel travel = (Travel) o;
-        return Objects.equals(id, travel.id) && Objects.equals(iata, travel.iata) && Objects.equals(fullName, travel.fullName) && Objects.equals(country, travel.country) && Objects.equals(city, travel.city) && Objects.equals(latitude, travel.latitude) && Objects.equals(longitude, travel.longitude);
+        return Objects.equals(id, travel.id)
+                && Objects.equals(iata, travel.iata)
+                && Objects.equals(fullName, travel.fullName) && Objects.equals(country, travel.country)
+                && Objects.equals(city, travel.city)
+                && Objects.equals(latitude, travel.latitude)
+                && Objects.equals(longitude, travel.longitude);
     }
 
     @Override
