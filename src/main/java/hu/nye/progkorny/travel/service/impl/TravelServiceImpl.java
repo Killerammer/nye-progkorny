@@ -17,8 +17,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TravelServiceImpl implements TravelService {
 
-    @Autowired
-    final List<Travel> dataBase = new ArrayList<>();
+    private final List<Travel> dataBase = new ArrayList<>();
 
     public TravelServiceImpl() {
         dataBase.add(new Travel(1L, "BUD", "Budapest Liszt Ferenc Nemzetközi Repülőtér",
