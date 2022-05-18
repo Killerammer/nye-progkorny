@@ -68,6 +68,19 @@ public class TravelServiceImpl implements TravelService {
         dataBase.remove(travel);
     }
 
+    public double calculateDistance(String iata1, String iata2) {
+        Travel travel1 = dataBase.stream()
+                .filter(travel -> travel.getIata().equals(iata1))
+                .findFirst()
+                .orElseThrow(NotFoundException::new);
+        Travel travel2 = dataBase.stream()
+                .filter(travel -> travel.getIata().equals(iata2))
+                .findFirst()
+                .orElseThrow(NotFoundException::new);
+
+        return distance(travel1.getLatitude(),travel2.getLatitude(),travel1.getLongitude(),travel2.getLongitude());
+    }
+
     private long getNextId() {
         return getLastId() + 1L;
     }
@@ -77,5 +90,25 @@ public class TravelServiceImpl implements TravelService {
                 .mapToLong(Travel::getId)
                 .max()
                 .orElse(0);
+    }
+
+    private static double distance(double lat1, double lat2, double lon1, double lon2)
+    {
+
+        lon1 = Math.toRadians(lon1);
+        lon2 = Math.toRadians(lon2);
+        lat1 = Math.toRadians(lat1);
+        lat2 = Math.toRadians(lat2);
+
+        double dlon = lon2 - lon1;
+        double dlat = lat2 - lat1;
+        double a = Math.pow(Math.sin(dlat / 2), 2)
+                + Math.cos(lat1) * Math.cos(lat2)
+                * Math.pow(Math.sin(dlon / 2),2);
+
+        double c = 2 * Math.asin(Math.sqrt(a));
+        double r = 6371;
+
+        return(c * r);
     }
 }

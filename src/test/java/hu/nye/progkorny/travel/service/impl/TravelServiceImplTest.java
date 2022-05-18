@@ -1,16 +1,21 @@
 package hu.nye.progkorny.travel.service.impl;
 
 import hu.nye.progkorny.travel.model.Travel;
+import hu.nye.progkorny.travel.model.TravelFill;
 import hu.nye.progkorny.travel.model.exception.NotFoundException;
 import hu.nye.progkorny.travel.service.TravelService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@ExtendWith(MockitoExtension.class)
 public class TravelServiceImplTest {
 
     private static final Travel BUDAPEST_TRAVEL = new Travel(1L, "BUD", "Budapest Liszt Ferenc Nemzetközi Repülőtér",
@@ -21,6 +26,7 @@ public class TravelServiceImplTest {
             BUDAPEST_TRAVEL,
             BERLIN_TRAVEL
     );
+
     public static final long UNKNOWN_TRAVEL_ID = -1L;
     public static final String MOSCOW_TRAVEL_FULLNAME = "Международный аэропорт Шереметьево имени А. С. Пушкина";
 
@@ -98,4 +104,19 @@ public class TravelServiceImplTest {
         // then
         assertThat(actual).isEqualTo(expectedTravels);
     }
+
+
+    //Átadunk neki 2 iata-t ami megfelel a kettő példának teszthez
+    //VIsszaadja e az azokhoz helyes ID-t
+    @Test
+    void calculateDistanceShouldReturnTheCorrectDistanceIfGivenTwoIatas() {
+        //given TODO Számolj gyereket
+        double expected = 0;
+        //when
+        double actual = underTest.calculateDistance(BERLIN_TRAVEL.getIata(),BUDAPEST_TRAVEL.getIata());
+        //then
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    //Visszaadja e az azok között lévő helyes távolságot
 }

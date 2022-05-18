@@ -15,4 +15,6 @@ public interface TravelService {
     Travel updateTravel(Long id, Travel travelChange);
 
     void deleteTravel(Long id);
+
+    double calculateDistance(String iata1, String iata2);
 }
